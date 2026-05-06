@@ -32,9 +32,6 @@ A modern Spotify inspired music player built using HTML, Tailwind CSS, and Vanil
 spotify-clone/
 │── index.html
 │── script.js
-│── assets/
-│   ├── images/
-│   ├── songs/
 │── README.md
 ```
 
