@@ -33,6 +33,7 @@ spotify-clone/
 │── index.html
 │── script.js
 │── README.md
+│── logo.jpg
 ```
 
 ---
