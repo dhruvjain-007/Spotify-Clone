@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spotify Clone</title>
+    <!-- Tailwind CSS CDN for utility-based styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -41,13 +42,12 @@
   <body class="bg-spotify-900 text-white">
     <div class="min-h-screen pb-36">
       <div class="flex flex-col xl:flex-row">
+        <!-- Sidebar navigation with playlists and library controls -->
         <aside class="w-full xl:w-72 bg-spotify-800 border-r border-white/10 p-5 hidden xl:block">
           <div class="space-y-8">
             <div class="flex items-center gap-3 text-white/90">
               <div class="flex h-12 w-12 items-center justify-center rounded-3xl bg-gradient-to-br from-green-500 to-emerald-500 shadow-soft">
-                <svg viewBox="0 0 256 256" class="h-7 w-7 text-black" fill="currentColor" aria-hidden="true">
-                  <path d="M128 160a8 8 0 1 1 0 16 8 8 0 0 1 0-16Zm52.4-30.8a8 8 0 0 1 10.5 5 8.1 8.1 0 0 1-5 10.5A88.1 88.1 0 0 1 128 188a8 8 0 0 1 0-16 72 72 0 0 0 75-48.3 8 8 0 0 1 10.5-5Zm-28.2-30.4a8 8 0 0 1 10.4 4.6 8 8 0 0 1-4.6 10.4C143.4 101.8 133 104 122 104a8 8 0 0 1 0-16c9.2 0 18.2-1.7 26.2-5.2Zm-35.7-21.3a8 8 0 0 1 10.4 4.5 8 8 0 0 1-4.5 10.4c-17.5 7.5-37.4 7.9-55.1 1a8 8 0 0 1 5.8-14.8c14 5.5 29 5.1 43.4-1.1Z" />
-                </svg>
+                <img class="flex h-12 w-12 items-center justify-center rounded-3xl bg-gradient-to-br from-green-500 to-emerald-500 shadow-soft" src="logo.jpg" alt="Spotify Logo">
               </div>
               <div>
                 <p class="text-sm uppercase tracking-[0.2em] text-white/60">Welcome back</p>
@@ -55,15 +55,11 @@
               </div>
             </div>
             <nav class="space-y-2 text-sm text-white/80">
-              <a href="#" class="group flex items-center gap-3 rounded-2xl bg-white/5 px-4 py-3 transition hover:bg-white/10">
+              <a id="nav-home" href="#" class="group flex items-center gap-3 rounded-2xl bg-white/5 px-4 py-3 transition hover:bg-white/10">
                 <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-green-500">H</span>
                 <span>Home</span>
               </a>
-              <a href="#" class="group flex items-center gap-3 rounded-2xl px-4 py-3 transition hover:bg-white/10">
-                <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80">S</span>
-                <span>Search</span>
-              </a>
-              <a href="#" class="group flex items-center gap-3 rounded-2xl px-4 py-3 transition hover:bg-white/10">
+              <a id="nav-library" href="#" class="group flex items-center gap-3 rounded-2xl px-4 py-3 transition hover:bg-white/10">
                 <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/80">L</span>
                 <span>Your Library</span>
               </a>
@@ -83,6 +79,7 @@
         </aside>
 
         <main class="flex-1 px-4 pt-5 xl:px-8">
+          <!-- Top bar with navigation, search, and profile info -->
           <section class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div class="flex items-center gap-2">
               <button id="nav-back" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/70 transition hover:bg-white/10">
@@ -105,9 +102,10 @@
             </div>
           </section>
 
-          <section class="mt-8 space-y-8">
-            <div>
-              <div class="flex items-center justify-between gap-4">
+          <div id="home-view">
+            <section class="mt-8 space-y-8">
+              <div>
+                <div class="flex items-center justify-between gap-4">
                 <div>
                   <p class="text-xs uppercase tracking-[0.3em] text-green-500">Good afternoon</p>
                   <h2 class="mt-2 text-3xl font-semibold">Discover new music</h2>
@@ -120,7 +118,7 @@
             </div>
 
             <div class="grid gap-4 lg:grid-cols-2">
-              <div class="rounded-3xl bg-white/5 p-6 shadow-soft">
+              <div id="recent-section" class="rounded-3xl bg-white/5 p-6 shadow-soft">
                 <div class="mb-4 flex items-center justify-between">
                   <div>
                     <p class="text-xs uppercase tracking-[0.25em] text-white/50">Recently played</p>
@@ -131,7 +129,7 @@
                 <div id="recent-grid" class="grid gap-4 sm:grid-cols-2"></div>
               </div>
 
-              <div class="rounded-3xl bg-white/5 p-6 shadow-soft">
+              <div id="trending-section" class="rounded-3xl bg-white/5 p-6 shadow-soft">
                 <div class="mb-4 flex items-center justify-between">
                   <div>
                     <p class="text-xs uppercase tracking-[0.25em] text-white/50">Trending playlists</p>
@@ -147,15 +145,15 @@
               <div class="rounded-3xl bg-white/5 p-6 shadow-soft">
                 <div class="mb-6 flex items-center justify-between">
                   <div>
-                    <p class="text-xs uppercase tracking-[0.25em] text-white/50">Recently added</p>
-                    <h3 class="mt-2 text-2xl font-semibold">Jump back</h3>
+                    <p id="song-section-subtitle" class="text-xs uppercase tracking-[0.25em] text-white/50">Recently added</p>
+                    <h3 id="song-section-title" class="mt-2 text-2xl font-semibold">Jump back</h3>
                   </div>
                   <button class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/70 transition hover:bg-white/10">⋯</button>
                 </div>
                 <div id="song-list" class="space-y-3"></div>
               </div>
 
-              <div class="rounded-3xl bg-white/5 p-6 shadow-soft">
+              <div id="artist-section" class="rounded-3xl bg-white/5 p-6 shadow-soft">
                 <div class="mb-6 flex items-center justify-between">
                   <div>
                     <p class="text-xs uppercase tracking-[0.25em] text-white/50">Popular artists</p>
@@ -166,10 +164,70 @@
               </div>
             </div>
           </section>
+          </div>
+          <div id="library-view" class="hidden space-y-8">
+            <div class="rounded-3xl bg-white/5 p-6 shadow-soft">
+              <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p class="text-xs uppercase tracking-[0.25em] text-white/50">Your Library</p>
+                  <h3 class="mt-2 text-3xl font-semibold">Playlists</h3>
+                </div>
+                <button id="library-create-btn" class="rounded-full bg-green-500 px-4 py-2 text-sm font-semibold text-black transition hover:bg-green-400">Create Playlist</button>
+              </div>
+              <div id="library-playlists" class="mt-6 grid gap-4 sm:grid-cols-2"></div>
+            </div>
+          </div>
+
+          <div id="playlist-editor" class="hidden space-y-8">
+            <div class="rounded-3xl bg-white/5 p-6 shadow-soft">
+              <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p class="text-xs uppercase tracking-[0.25em] text-white/50">Create playlist</p>
+                  <h3 class="mt-2 text-3xl font-semibold">Build a playlist</h3>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                  <button id="save-playlist-btn" class="rounded-full bg-green-500 px-4 py-2 text-sm font-semibold text-black transition hover:bg-green-400">Save</button>
+                  <button id="cancel-playlist-btn" class="rounded-full bg-white/10 px-4 py-2 text-sm text-white/80 transition hover:bg-white/20">Cancel</button>
+                </div>
+              </div>
+              <div class="mt-6 grid gap-4 sm:grid-cols-[1fr_0.75fr]">
+                <div>
+                  <label class="text-xs uppercase tracking-[0.25em] text-white/50">Playlist name</label>
+                  <input id="playlist-name-input" type="text" placeholder="Type playlist name" class="mt-2 w-full rounded-3xl border border-white/10 bg-spotify-700 px-4 py-3 text-white outline-none placeholder:text-white/40" />
+                </div>
+                <div>
+                  <label class="text-xs uppercase tracking-[0.25em] text-white/50">Search songs</label>
+                  <input id="playlist-search-input" type="search" placeholder="Search songs to add" class="mt-2 w-full rounded-3xl border border-white/10 bg-spotify-700 px-4 py-3 text-white outline-none placeholder:text-white/40" />
+                </div>
+              </div>
+              <div class="mt-6">
+                <p class="text-sm text-white/60">Select songs to add to this playlist.</p>
+                <div id="playlist-song-selection" class="mt-4 space-y-3"></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="playlist-detail-view" class="hidden space-y-8">
+            <div class="rounded-3xl bg-white/5 p-6 shadow-soft">
+              <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p class="text-xs uppercase tracking-[0.25em] text-white/50">Playlist</p>
+                  <h3 id="detail-playlist-name" class="mt-2 text-3xl font-semibold"></h3>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                  <button id="rename-playlist-btn" class="rounded-full bg-white/10 px-4 py-2 text-sm text-white/80 transition hover:bg-white/20">Rename</button>
+                  <button id="play-playlist-btn" class="rounded-full bg-green-500 px-4 py-2 text-sm font-semibold text-black transition hover:bg-green-400">Play Playlist</button>
+                  <button id="back-to-library-btn" class="rounded-full bg-white/10 px-4 py-2 text-sm text-white/80 transition hover:bg-white/20">Back</button>
+                </div>
+              </div>
+              <div id="playlist-songs-list" class="mt-6 space-y-3"></div>
+            </div>
+          </div>
         </main>
       </div>
     </div>
 
+    <!-- Bottom persistent player with audio controls and progress -->
     <div class="fixed bottom-0 left-0 right-0 border-t border-white/10 bg-spotify-800/95 px-4 py-4 backdrop-blur-xl">
       <div class="mx-auto flex max-w-7xl flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div class="flex items-center gap-4">
