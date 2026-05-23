@@ -163,6 +163,7 @@ const elements = {
   playerTitle: document.getElementById('player-title'),
   playerArtist: document.getElementById('player-artist'),
   playPauseBtn: document.getElementById('play-pause-btn'),
+  playPauseIcon: document.getElementById('play-pause-icon'),
   prevBtn: document.getElementById('prev-btn'),
   nextBtn: document.getElementById('next-btn'),
   shuffleBtn: document.getElementById('shuffle-btn'),
@@ -450,13 +451,19 @@ function loadSong(index) {
 function playSong() {
   elements.audioPlayer.play();
   isPlaying = true;
-  elements.playPauseBtn.textContent = '⏸';
+  if (elements.playPauseIcon) {
+    elements.playPauseIcon.src = 'https://img.icons8.com/ios-filled/24/ffffff/pause--v1.png';
+    elements.playPauseIcon.alt = 'Pause';
+  }
 }
 
 function pauseSong() {
   elements.audioPlayer.pause();
   isPlaying = false;
-  elements.playPauseBtn.textContent = '▶';
+  if (elements.playPauseIcon) {
+    elements.playPauseIcon.src = 'https://img.icons8.com/ios-filled/24/ffffff/play--v1.png';
+    elements.playPauseIcon.alt = 'Play';
+  }
 }
 
 function togglePlayPause() {

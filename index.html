@@ -224,7 +224,7 @@
     </div>
 
     <!-- Bottom persistent player with audio controls and progress -->
-    <div class="fixed bottom-0 left-0 right-0 border-t border-white/10 bg-spotify-800/95 px-4 py-4 backdrop-blur-xl">
+    <div class="fixed bottom-0 left-0 right-0 border-t border-white/10 bg-spotify-800/95 px-4 py-3 backdrop-blur-xl">
       <div class="mx-auto flex max-w-7xl flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div class="flex items-center gap-4">
           <img id="player-image" src="" alt="Current cover" class="h-16 w-16 rounded-2xl object-cover shadow-soft" />
@@ -233,11 +233,17 @@
             <p id="player-artist" class="text-xs text-white/60">Waiting to play</p>
           </div>
         </div>
-        <div class="flex flex-col items-center gap-4">
+        <div class="flex flex-col items-center gap-3">
           <div class="flex items-center gap-3">
-            <button id="prev-btn" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/80 transition hover:bg-white/10">⟨</button>
-            <button id="play-pause-btn" class="inline-flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-black shadow-soft transition hover:scale-105">▶</button>
-            <button id="next-btn" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white/80 transition hover:bg-white/10">⟩</button>
+            <button id="prev-btn" class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/5 transition hover:bg-white/10">
+              <img src="https://img.icons8.com/ios-filled/24/ffffff/skip-to-start.png" alt="Previous" class="h-5 w-5" />
+            </button>
+            <button id="play-pause-btn" class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-500 shadow-soft transition hover:scale-105">
+              <img id="play-pause-icon" src="https://img.icons8.com/ios-filled/24/ffffff/play--v1.png" alt="Play" class="h-6 w-6" />
+            </button>
+            <button id="next-btn" class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/5 transition hover:bg-white/10">
+              <img src="https://img.icons8.com/ios-filled/24/ffffff/end.png" alt="Next" class="h-5 w-5" />
+            </button>
           </div>
           <div class="w-full max-w-2xl">
             <div class="mb-2 flex items-center justify-between text-xs text-white/50">
