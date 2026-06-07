@@ -6,7 +6,7 @@ const songs = [
     title: 'Neon Skyline',
     artist: 'Luna Echo',
     duration: '3:58',
-    image: 'https://images.unsplash.com/photo-1523905330026-b0a9359ccbc3?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80',
     audio: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
     playlist: 'Today’s Top Hits',
     liked: false
@@ -219,7 +219,7 @@ function renderRecentCards(data) {
   elements.recentGrid.innerHTML = data.slice(0, 4).map((song) => {
     return `
       <article class="group rounded-3xl bg-white/5 p-4 transition hover:-translate-y-1 hover:bg-white/10">
-        <img src="${song.image}" alt="${song.title}" class="h-40 w-full rounded-3xl object-cover shadow-soft" />
+        <img src="${song.image || 'https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=600&q=80'}" alt="${song.title}" class="h-40 w-full rounded-3xl object-cover shadow-soft" />
         <div class="mt-4 flex items-start justify-between gap-3">
           <div>
             <h3 class="font-semibold">${song.title}</h3>
@@ -277,7 +277,7 @@ function renderSongList(data) {
     return `
       <div data-song-id="${song.id}" class="group flex items-center justify-between gap-4 rounded-3xl ${activeClass} p-4 transition hover:bg-white/10">
         <div class="flex items-center gap-4">
-          <img src="${song.image}" alt="${song.title}" class="h-16 w-16 rounded-2xl object-cover" />
+          <img src="${song.image || 'https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=600&q=80'}" alt="${song.title}" class="h-16 w-16 rounded-2xl object-cover" />
           <div>
             <h4 class="font-semibold">${song.title}</h4>
             <p class="mt-1 text-sm text-white/60">${song.artist}</p>
